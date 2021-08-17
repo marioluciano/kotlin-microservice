@@ -56,8 +56,10 @@ class SwaggerConfig {
                 null,
                 OperationsSorter.ALPHA,
                 java.lang.Boolean.FALSE,
+                null,
                 TagsSorter.ALPHA,
                 UiConfiguration.Constants.DEFAULT_SUBMIT_METHODS,
+                null,
                 null
         )
     }
