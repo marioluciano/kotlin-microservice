@@ -1,9 +1,13 @@
 micronaut:
   application:
     name: employee-service
-  config-client:
-    enabled: true
-
+  server:
+    port: 8081
+eureka:
+  client:
+    registration:
+      enabled: true
+    defaultZone: "${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka/"
 spring:
   cloud:
     config:

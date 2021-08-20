@@ -8,7 +8,7 @@
 
 	<properties>
 		<exec.mainClass>com.service.department.DepartmentServiceApplication</exec.mainClass>
-		<micronaut.version>1.1.0.M1</micronaut.version>
+		<micronaut.version>1.3.0</micronaut.version>
 		<java.version>11</java.version>
 		<kotlin.version>1.5.21</kotlin.version>
 	</properties>
@@ -113,11 +113,6 @@
 			<artifactId>kotlin-test</artifactId>
 			<version>${kotlin.version}</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.jetbrains.kotlin</groupId>
-			<artifactId>kotlin-stdlib-jdk8</artifactId>
-			<version>${kotlin.version}</version>
 		</dependency>
 	</dependencies>
 

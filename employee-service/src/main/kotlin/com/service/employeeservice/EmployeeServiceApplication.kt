@@ -1,4 +1,4 @@
-package com.service.employeeservice
+package com.service.employee
 
 import io.micronaut.runtime.Micronaut
 import io.swagger.v3.oas.annotations.OpenAPIDefinition

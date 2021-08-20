@@ -1,4 +1,4 @@
-package com.service.departmentservice
+package com.service.department
 
 import io.micronaut.runtime.Micronaut
 import io.swagger.v3.oas.annotations.OpenAPIDefinition
