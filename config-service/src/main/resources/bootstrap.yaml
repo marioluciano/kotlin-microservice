@@ -1,0 +1,37 @@
+spring:
+  profiles:
+    active: jdbc
+  application:
+    name: config-service
+  cloud:
+    config:
+      name: config-service
+      label: default
+      enabled: true
+      server:
+        bootstrap: true
+        jdbc:
+          order: 1
+          sql: SELECT KEY, VALUE from PROPERTIES where APPLICATION=? and PROFILE=? and LABEL=?
+  # datasource:
+  #   url: jdbc:postgresql://localhost:5432/db-config
+  #   username: micronaut
+  #   password: P@ssw0rd
+  #   driver-class-name: org.postgresql.Driver
+  #   hikari:
+  #     pool-name: config
+  #     idle-timeout: 120000
+  #     maximum-pool-size: 10
+  #     minimum-idle: 5
+  #     max-lifetime: 300000
+  flyway:
+    placeholder-replacement: false
+    baseline-on-migrate: true
+  jpa:
+    database: postgresql
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+      hibernate.temp.use_jdbc_metadata_defaults: false
+      hibernate.jdbc.time_zone: UTC
+    hibernate:
+      ddl-auto: create-drop

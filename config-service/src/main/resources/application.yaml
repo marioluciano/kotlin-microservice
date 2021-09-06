@@ -1,0 +1,43 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db-config
+    username: micronaut
+    password: P@ssw0rd
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      pool-name: config
+      idle-timeout: 120000
+      maximum-pool-size: 10
+      minimum-idle: 5
+      max-lifetime: 300000
+  flyway:
+    enabled: true
+    locations: "classpath:db/migration"
+micronaut:
+  server:
+    port: -1
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+endpoints:
+  info:
+    enabled: true
+    sensitive: false
+eureka:
+  client:
+    registration:
+      enabled: true
+    defaultZone: "localhost:8761"
+#tracing:
+#  zipkin:
+#    enabled: true
+#    http:
+#      url: http://192.168.99.100:9411
+#    sampler:
+#      probability: 1
