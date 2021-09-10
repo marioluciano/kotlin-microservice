@@ -1,0 +1,41 @@
+# - hosts: localhost
+#   vars:
+#     db_user: config
+#     db_name: db-config
+#     db_password: P@ssw0rd
+
+#   tasks:
+#     - name: Install dependencies for PostgreSQL
+#       become: true
+#       become_method: sudo
+#       apt: name={{ item }} update_cache=true state=latest
+#       with_items:
+#         - bash
+#         - openssl
+#         - libssl-dev
+#         - libssl-doc
+#     - name: Install PostgreSQL
+#       become: true
+#       become_method: sudo
+#       apt: name={{ item }} update_cache=true state=present
+#       with_items:
+#         - postgresql
+#         - postgresql-contrib
+#         - libpq-dev
+#         - python3-psycopg2
+#     - name: Ensure the PostgreSQL server is running
+#       become: true
+#       become_method: sudo
+#       service: name=postgresql state=started enabled=yes
+#     - name: Create the database especified in vars
+#       become: true
+#       become_user: postgres
+#       postgresql_db: name={{ db_name }} template='template0' state=present
+#     - name: Ensure the user has access to the new database
+#       become: true
+#       become_user: postgres
+#       postgresql_user: db={{ db_name }} name={{ db_user }} password={{ db_password }} priv=ALL state=present
+#     - name: Ensure user has not unnecessary permissions
+#       become: true
+#       become_user: postgres
+#       postgresql_user: name={{ db_user }} role_attr_flags=NOSUPERUSER,NOCREATEDB state=present

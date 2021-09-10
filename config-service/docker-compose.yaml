@@ -1,0 +1,18 @@
+services:
+  postgres:
+    container_name: config-server
+    image: postgres:13-alpine
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q", "-d", "config", "-U", "config"]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    restart: always
+    environment:
+      - POSTGRES_DB=config
+      - POSTGRES_USER=config
+      - POSTGRES_PASSWORD=P@ssw0rd
+    volumes:
+      - ./src/main/resources/db/setup/initdb.sql:/docker-entrypoint-initdb.d/initdb.sql
+    ports:
+      - 7001:5432
